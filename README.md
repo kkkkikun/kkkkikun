@@ -21,6 +21,11 @@
 - 🏆 **码蹄杯程序设计大赛 — 省赛金奖**（2026）
 - 🎓 清华大学开源操作系统训练营（2026 春夏）— 在 StarryOS 上实现 io_uring 异步 I/O
 
+## 🌐 上游开源贡献
+
+- [**RustSBI #434**](https://github.com/rustsbi/rustsbi/pull/434) · [Issue #375](https://github.com/rustsbi/rustsbi/issues/375) — 为 QEMU RV32 `virt` 补充 Linux 6.12.110 最小启动 CI，覆盖 Bare SBI 与 U-Boot 两条路径，验证进入 BusyBox 用户态；串口断言架构与 `/proc` 状态，失败时保留日志。两条路径在 GitHub Actions 端到端通过，PR 于 **2026-10-23 合并**。
+- [**RustSBI #436**](https://github.com/rustsbi/rustsbi/pull/436) · [Issue #408](https://github.com/rustsbi/rustsbi/issues/408) — 为 openRuyi Server、Workstation labwc、Workstation KDE 增加 **3×3 启动矩阵**，分别验证 Bare SBI、U-Boot、EDK II 启动；固定镜像与校验和，检查串口用户态里程碑并保存诊断日志。PR CI 中 9 个新增矩阵任务及既有 Zero 任务 **10/10 通过**，脚本通过 `bash -n`、ShellCheck 与 25 组离线自测，PR 于 **2026-10-25 合并**。
+
 ## 🚀 项目
 | 项目 | 简介 | 技术栈 |
 |---|---|---|
