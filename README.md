@@ -19,6 +19,7 @@ PolarDB 数据库创新设计赛作品。通过 perf 定位瓶颈，结合 SQ8 �
 
 参与 [RustSBI](https://github.com/rustsbi/rustsbi) 的 QEMU 启动测试与 CI 建设，以下 PR 均已合并：
 
+- **SBI HSM CPU 热插拔回归测试** — [#441](https://github.com/rustsbi/rustsbi/pull/441)，2026-11-15。将 CPU 热插拔验证并入默认最小 Linux `sbi` 启动测试，覆盖 secondary CPU 的 `hart_stop`/`hart_start`、多轮 offline/online、重启后的计算活性，以及 SBI 深度空闲（`hart_suspend`）交叉场景。QEMU 本地验证中，PR 版本 5/5 检查通过；同一测试套件在 `-smp 2/4` 下通过 50 轮压力循环及深度空闲、suspend-to-idle 交叉测试。为 [Issue #262](https://github.com/rustsbi/rustsbi/issues/262) 的修复补充回归保护。
 - **RV32 最小 Linux 启动测试** — [#434](https://github.com/rustsbi/rustsbi/pull/434)，2026-10-23。补齐 Bare SBI、U-Boot 两条路径，验证 Linux 启动至 BusyBox 用户态，通过串口断言检查架构及 `/proc` 状态。两条路径均通过 GitHub Actions 端到端验证，完成 [Issue #375](https://github.com/rustsbi/rustsbi/issues/375)。
 - **openRuyi 启动测试矩阵** — [#436](https://github.com/rustsbi/rustsbi/pull/436)，2026-10-25。新增 Server、Workstation labwc、KDE × Bare SBI、U-Boot、EDK II 共 9 组测试，固定镜像与校验和，检查用户态里程碑并保留诊断日志。PR CI 中新增 9 组及既有 Zero 测试合计 **10/10 通过**；脚本通过 ShellCheck 与 25 组离线自测，完成 [Issue #408](https://github.com/rustsbi/rustsbi/issues/408)。
 - **构建脚本清理** — [#435](https://github.com/rustsbi/rustsbi/pull/435)，2026-10-22。移除 `rust-objcopy` 中冗余的固定架构参数，通过 xtask 测试，并验证 RV32/RV64 固件二进制输出与修改前逐字节一致。
